@@ -259,11 +259,13 @@ export default function ExperimentPage() {
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-sm font-black text-white shadow-sm">AF</div>
 
               <div className="min-w-0">
-                <div>
+                <div className="flex items-center gap-2">
                   <p className="text-[10px] font-black uppercase tracking-[0.18em] text-emerald-600 sm:text-xs">Allen Farm</p>
 
-                  <h1 className="mt-0.5 truncate text-base font-black sm:text-xl">Packaging Report</h1>
+                  <span className="rounded-full bg-purple-50 px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-purple-600">Eksperimen</span>
                 </div>
+
+                <h1 className="mt-0.5 truncate text-base font-black sm:text-xl">Packaging Report</h1>
               </div>
             </div>
 
@@ -328,9 +330,9 @@ export default function ExperimentPage() {
         <section className="mb-7 overflow-hidden rounded-[1.5rem] bg-slate-900 p-5 text-white shadow-sm">
           <div className="flex items-center justify-between gap-4">
             <div className="min-w-0">
-              <p className="text-[11px] font-black uppercase tracking-wider text-slate-400">Ringkasan panen</p>
+              <p className="text-[11px] font-black uppercase tracking-wider text-slate-400">Pilihan hari ini</p>
 
-              <p className="mt-1 text-sm text-slate-300">{totalSelected === 0 ? "Belum ada greenhouse dipilih" : `${totalSelected} greenhouse siap dilaporkan`}</p>
+              <p className="mt-1 text-sm text-slate-300">{totalSelected === 0 ? "Belum ada greenhouse yang dipilih" : `${totalSelected} greenhouse akan masuk laporan`}</p>
             </div>
 
             <div className="flex h-14 min-w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 px-3 text-xl font-black shadow-lg">{totalSelected}</div>
@@ -419,11 +421,11 @@ export default function ExperimentPage() {
         <section className="mb-8">
           <div className="mb-4 flex items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.14em] text-amber-600">Organik</p>
+              <p className="text-xs font-black uppercase tracking-[0.14em] text-amber-600">Area 02</p>
 
               <h3 className="mt-1 text-xl font-black">Green House Organik</h3>
 
-              <p className="mt-1 text-sm text-slate-500">Pilih sektor, lalu tandai greenhouse yang dipanen.</p>
+              <p className="mt-1 text-sm text-slate-500">Pilih sektor dan greenhouse yang dipanen.</p>
             </div>
 
             <span className="shrink-0 rounded-full bg-amber-50 px-3 py-1.5 text-xs font-black text-amber-700">{totalOrganic} dipilih</span>
@@ -435,11 +437,11 @@ export default function ExperimentPage() {
         {/* Preview */}
         <section id="report-preview" className="mb-6 scroll-mt-5 overflow-hidden rounded-[1.5rem] bg-white shadow-sm ring-1 ring-slate-200">
           <div className="border-b border-slate-100 px-5 py-4">
-            <p className="text-[11px] font-black uppercase tracking-wider text-emerald-600">Siap dikirim</p>
+            <p className="text-[11px] font-black uppercase tracking-wider text-emerald-600">Langkah terakhir</p>
 
-            <h3 className="mt-1 text-lg font-black">Laporan WhatsApp</h3>
+            <h3 className="mt-1 text-lg font-black">Preview laporan</h3>
 
-            <p className="mt-1 text-xs text-slate-400">Ini adalah teks yang akan disalin ke grup WhatsApp.</p>
+            <p className="mt-1 text-xs text-slate-400">Pastikan pilihan sudah sesuai sebelum disalin.</p>
           </div>
 
           <div className="bg-[#eef2f5] p-4 sm:p-5">
@@ -476,7 +478,7 @@ export default function ExperimentPage() {
                 copied ? "bg-emerald-100 text-emerald-700" : totalSelected > 0 ? "bg-emerald-600 text-white shadow-lg shadow-emerald-200 hover:bg-emerald-700" : "cursor-not-allowed bg-slate-100 text-slate-400"
               }`}
             >
-              {copied ? "✓ Laporan Tersalin" : "Salin Laporan"}
+              {copied ? "✓ Berhasil Disalin" : "Salin Laporan"}
             </button>
           </div>
         </section>
@@ -485,7 +487,7 @@ export default function ExperimentPage() {
         <footer className="mt-10 pb-4 text-center">
           <p className="text-xs font-bold text-slate-400">Allen Farm Packaging</p>
 
-          <p className="mt-1 text-[10px] text-slate-300">Laporan Packaging Harian</p>
+          <p className="mt-1 text-[10px] text-slate-300">Packaging Report System</p>
         </footer>
       </div>
 
@@ -516,7 +518,7 @@ export default function ExperimentPage() {
               copied ? "bg-emerald-100 text-emerald-700" : totalSelected > 0 ? "bg-emerald-600 text-white shadow-lg shadow-emerald-200" : "cursor-not-allowed bg-slate-200 text-slate-400"
             }`}
           >
-            {copied ? "✓ Laporan Tersalin" : totalSelected > 0 ? "Salin Laporan" : "Pilih Greenhouse Terlebih Dahulu"}
+            {copied ? "✓ Laporan Berhasil Disalin" : totalSelected > 0 ? "Salin Laporan" : "Pilih Greenhouse Terlebih Dahulu"}
           </button>
         </div>
       </div>
