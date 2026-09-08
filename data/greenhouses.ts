@@ -31,11 +31,11 @@ export const hydroGreenhouses = [
   "C7",
   "C8",
 
-  "E1",
+  "E",
 
   "F1",
   "F2",
   "F3",
 ] as const;
 
-export const organicGreenhouses = ["O1", "O2", "O3", "O4", "O5", "O6", "O7", "O8", "O9", "O10", "O11", "O12", "O13", "O14", "O15", "O16", "G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11", "G12", "N1", "C9"] as const;
+export const organicGreenhouses = ["O1", "O2", "O3", "O4", "O5", "O6", "O7", "O8", "O9", "O10", "O11", "O12", "O13", "O14", "O15", "O16", "G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10", "G11", "G12", "N1", "N2", "C9"] as const;
