@@ -306,29 +306,60 @@ export default function ExperimentPage() {
 
         <section className="mb-4">
           <div className="mb-3 flex items-center justify-between gap-3">
-            <h3 className="text-sm font-extrabold tracking-tight text-[#24372A]">Pilih kategori greenhouse</h3>
-            <button type="button" onClick={() => setAllSectorsOpen(activeOpenSectors.length !== Object.keys(activeSectors).length)} className="text-[11px] font-bold text-slate-500 underline underline-offset-2">
+            <div>
+              <h3 className="text-sm font-extrabold tracking-tight text-[#24372A]">Pilih jenis greenhouse</h3>
+              <p className="mt-1 text-[11px] text-[#718174]">Ketuk salah satu kategori untuk melihat lokasinya.</p>
+            </div>
+            <button type="button" onClick={() => setAllSectorsOpen(activeOpenSectors.length !== Object.keys(activeSectors).length)} className="shrink-0 text-[11px] font-bold text-slate-500 underline underline-offset-2">
               {activeOpenSectors.length === Object.keys(activeSectors).length ? "Tutup semua" : "Buka semua"}
             </button>
           </div>
-          <div className="grid grid-cols-2 gap-1.5 rounded-2xl border border-white/80 bg-[#E3EBE1]/80 p-1.5 shadow-inner backdrop-blur-lg">
+
+          <div className="grid grid-cols-2 gap-2">
             <button
               type="button"
               onClick={() => setActiveCategory("hydro")}
               aria-pressed={activeCategory === "hydro"}
-              className={`flex items-center justify-between rounded-[13px] px-3.5 py-3.5 text-left transition duration-200 ${activeCategory === "hydro" ? "bg-gradient-to-br from-white to-[#F2F8F1] text-[#175D39] shadow-[0_5px_16px_rgba(24,79,46,0.12)] ring-1 ring-[#D5E6D5]" : "text-slate-600"}`}
+              className={`group relative flex min-h-[104px] flex-col justify-between overflow-hidden rounded-2xl border p-3.5 text-left transition duration-200 active:scale-[0.98] ${activeCategory === "hydro" ? "border-emerald-600 bg-gradient-to-br from-[#E8F5EB] via-white to-[#DCEFE0] text-[#175D39] shadow-[0_7px_20px_rgba(24,79,46,0.14)] ring-2 ring-emerald-600/20" : "border-[#DCE6DB] bg-white/75 text-[#526357] shadow-sm hover:border-emerald-300 hover:bg-white"}`}
             >
-              <span className="text-xs font-extrabold">Hidroponik</span>
-              <span className={`rounded-md px-2 py-1 text-[10px] font-black ${activeCategory === "hydro" ? "bg-[#EAF4EC] text-[#236942]" : "bg-white/70 text-slate-500"}`}>{totalHydro}</span>
+              <span className="flex w-full items-start justify-between gap-2">
+                <span className={`flex h-9 w-9 items-center justify-center rounded-xl text-sm font-black ${activeCategory === "hydro" ? "bg-emerald-700 text-white shadow-sm" : "bg-emerald-50 text-emerald-700"}`}>H</span>
+                <span className={`flex h-6 min-w-6 items-center justify-center rounded-full px-1.5 text-[10px] font-black ${activeCategory === "hydro" ? "bg-emerald-700 text-white" : "bg-[#EDF3EC] text-[#617263]"}`}>{totalHydro}</span>
+              </span>
+              <span className="mt-3 block">
+                <span className="flex items-center gap-1.5 text-xs font-extrabold">
+                  Hidroponik
+                  {activeCategory === "hydro" && (
+                    <span className="text-emerald-700" aria-hidden="true">
+                      ✓
+                    </span>
+                  )}
+                </span>
+                <span className={`mt-1 block text-[10px] ${activeCategory === "hydro" ? "text-emerald-800/75" : "text-slate-500"}`}>{activeCategory === "hydro" ? "Sedang dipilih" : "Ketuk untuk memilih"}</span>
+              </span>
             </button>
+
             <button
               type="button"
               onClick={() => setActiveCategory("organic")}
               aria-pressed={activeCategory === "organic"}
-              className={`flex items-center justify-between rounded-[13px] px-3.5 py-3.5 text-left transition duration-200 ${activeCategory === "organic" ? "bg-gradient-to-br from-white to-[#FFF7E8] text-[#8E5718] shadow-[0_5px_16px_rgba(123,86,28,0.10)] ring-1 ring-[#F0DFC0]" : "text-slate-600"}`}
+              className={`group relative flex min-h-[104px] flex-col justify-between overflow-hidden rounded-2xl border p-3.5 text-left transition duration-200 active:scale-[0.98] ${activeCategory === "organic" ? "border-amber-500 bg-gradient-to-br from-[#FFF4DC] via-white to-[#F8E8C6] text-[#8E5718] shadow-[0_7px_20px_rgba(123,86,28,0.13)] ring-2 ring-amber-500/20" : "border-[#E8DFCE] bg-white/75 text-[#665C4D] shadow-sm hover:border-amber-300 hover:bg-white"}`}
             >
-              <span className="text-xs font-extrabold">Organik</span>
-              <span className={`rounded-md px-2 py-1 text-[10px] font-black ${activeCategory === "organic" ? "bg-amber-50 text-amber-700" : "bg-white/70 text-slate-500"}`}>{totalOrganic}</span>
+              <span className="flex w-full items-start justify-between gap-2">
+                <span className={`flex h-9 w-9 items-center justify-center rounded-xl text-sm font-black ${activeCategory === "organic" ? "bg-amber-600 text-white shadow-sm" : "bg-amber-50 text-amber-700"}`}>O</span>
+                <span className={`flex h-6 min-w-6 items-center justify-center rounded-full px-1.5 text-[10px] font-black ${activeCategory === "organic" ? "bg-amber-600 text-white" : "bg-[#F7F0E4] text-[#806D51]"}`}>{totalOrganic}</span>
+              </span>
+              <span className="mt-3 block">
+                <span className="flex items-center gap-1.5 text-xs font-extrabold">
+                  Organik
+                  {activeCategory === "organic" && (
+                    <span className="text-amber-700" aria-hidden="true">
+                      ✓
+                    </span>
+                  )}
+                </span>
+                <span className={`mt-1 block text-[10px] ${activeCategory === "organic" ? "text-amber-800/75" : "text-slate-500"}`}>{activeCategory === "organic" ? "Sedang dipilih" : "Ketuk untuk memilih"}</span>
+              </span>
             </button>
           </div>
         </section>
